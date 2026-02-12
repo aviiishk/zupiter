@@ -42,9 +42,13 @@ const ProductCard = ({ product }) => {
                     ))}
                 </ul>
 
-                <button className="w-full py-3 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-lg hover:bg-primary hover:text-slate-900 transition-colors duration-200">
-                    Inquire Now
-                </button>
+                <a
+    href="tel:9435591874"
+    className="w-full py-3 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-lg hover:bg-primary hover:text-slate-900 transition-colors duration-200 flex items-center justify-center"
+>
+    Inquire Now
+</a>
+
             </div>
         </motion.div>
     );

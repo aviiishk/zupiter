@@ -1,13 +1,11 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
+import { Brain, MapPin, Shield } from "lucide-react";
+import { Link } from 'react-router-dom';
+import Hero from '../components/Hero';
 
 const Home = () => {
     return (
         <div className="min-h-screen flex flex-col">
-            <Navbar />
             <Hero />
 
             {/* Why Zupiter Section */}
@@ -21,17 +19,17 @@ const Home = () => {
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                icon: 'psychiatry',
+                                icon: <Brain/>,
                                 title: 'Herbal Efficiency',
                                 desc: "Harnessing the natural antibacterial properties of Assam's finest Neem and organic extracts to create a safer environment."
                             },
                             {
-                                icon: 'location_on',
+                                icon: <MapPin/>,
                                 title: 'Assam’s Own',
                                 desc: "Proudly manufactured in the heart of Assam. We combine local heritage with global manufacturing standards for pure protection."
                             },
                             {
-                                icon: 'security',
+                                icon: <Shield />,
                                 title: '24-Hour Shield',
                                 desc: "Advanced medical-grade formulas that provide a persistent antimicrobial layer, ensuring safety long after application."
                             }
@@ -81,16 +79,16 @@ const Home = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-xl hover:bg-slate-800 transition-all shadow-xl">
+                            <Link  to="/products" className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-xl hover:bg-slate-800 transition-all shadow-xl">
                                 Explore Our Range
-                            </button>
+                            </Link>
                         </div>
 
                         {/* Image Grid */}
                         <div className="flex-1 grid grid-cols-2 gap-4">
                             <div className="space-y-4 pt-8">
                                 <div className="rounded-2xl overflow-hidden shadow-lg h-64 transform hover:scale-105 transition-transform duration-300">
-                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZpGMEWTv3-49H1NSXosB8jjQUkMj41JESGXTx-vtK50cjnOsQP9ZZpNVo48D4nFGZ1C3XHaG6WtY-wGastnIbTyzzMN7LlKncZVfCpFGcdMQbkVW8Z51K4dSDLcVtH9PjFo9IQp3M0DpVI6QNfWm2wWJWMxXwT8PCZ2xfE2eDOYjRk_1Roe2zB_AR03qKfQJoZHupGmjVjKEiwZiVfMNt55A4fnLJcb5-qO0kToNkZl8iJQmowgMQebDW-28VsKLyG4HsQ2zBGn0k" alt="Sanitizer" className="w-full h-full object-cover" />
+                                    <img src="/disNeem24.jpeg" alt="Sanitizer" className="w-full h-full object-cover" />
                                 </div>
                                 <div className="rounded-2xl overflow-hidden shadow-lg h-48 bg-primary/20 flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
                                     <span className="material-icons text-6xl text-primary opacity-50">sanitizer</span>
@@ -108,8 +106,6 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

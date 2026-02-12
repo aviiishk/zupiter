@@ -17,12 +17,15 @@ const Navbar = () => {
     return (
         <nav className="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2 group">
                     <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform">
                         <span className="material-icons text-white">shield</span>
                     </div>
-                    <span className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">ZUPITER</span>
+                    <span className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                        ZUPITER
+                    </span>
                 </Link>
 
                 {/* Desktop Menu */}
@@ -31,18 +34,30 @@ const Navbar = () => {
                         <Link
                             key={link.name}
                             to={link.path}
-                            className={`text-sm font-medium transition-colors duration-200 ${isActive(link.path)
+                            className={`text-sm font-medium transition-colors duration-200 ${
+                                isActive(link.path)
                                     ? 'text-primary font-semibold'
                                     : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary'
-                                }`}
+                            }`}
                         >
                             {link.name}
                         </Link>
                     ))}
                 </div>
 
-                {/* CTA Button */}
+                {/* Desktop CTA Buttons */}
                 <div className="hidden md:flex items-center gap-4">
+
+                    {/* Call Now */}
+                    <a
+                        href="tel:9435591874"
+                        className="px-5 py-2.5 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-slate-900 transition-all duration-200 flex items-center gap-2"
+                    >
+                        <span className="material-icons text-sm">call</span>
+                        Call Now
+                    </a>
+
+                    {/* Request Quote */}
                     <Link
                         to="/contact"
                         className="px-6 py-2.5 bg-primary text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-200"
@@ -57,7 +72,9 @@ const Navbar = () => {
                         onClick={() => setIsOpen(!isOpen)}
                         className="text-slate-900 dark:text-white hover:text-primary focus:outline-none"
                     >
-                        <span className="material-icons text-2xl">{isOpen ? 'close' : 'menu'}</span>
+                        <span className="material-icons text-2xl">
+                            {isOpen ? 'close' : 'menu'}
+                        </span>
                     </button>
                 </div>
             </div>
@@ -66,19 +83,33 @@ const Navbar = () => {
             {isOpen && (
                 <div className="md:hidden bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
                     <div className="px-6 py-4 space-y-4 flex flex-col">
+
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.path}
                                 onClick={() => setIsOpen(false)}
-                                className={`text-base font-medium transition-colors ${isActive(link.path)
+                                className={`text-base font-medium transition-colors ${
+                                    isActive(link.path)
                                         ? 'text-primary'
                                         : 'text-slate-600 dark:text-slate-300 hover:text-primary'
-                                    }`}
+                                }`}
                             >
                                 {link.name}
                             </Link>
                         ))}
+
+                        {/* Mobile Call Button */}
+                        <a
+                            href="tel:9435591874"
+                            onClick={() => setIsOpen(false)}
+                            className="px-6 py-3 border border-primary text-primary font-semibold rounded-lg text-center flex items-center justify-center gap-2"
+                        >
+                            <span className="material-icons text-sm">call</span>
+                            Call Now
+                        </a>
+
+                        {/* Mobile Request Quote */}
                         <Link
                             to="/contact"
                             onClick={() => setIsOpen(false)}
@@ -86,6 +117,7 @@ const Navbar = () => {
                         >
                             Request Quote
                         </Link>
+
                     </div>
                 </div>
             )}
